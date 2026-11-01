@@ -1,0 +1,20 @@
+name: school_manager
+description:   اپلیکیشن مدیریت مدرسه پسرانه جعفر صادق 
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  sqflite: ^2.3.0
+  path: ^1.8.3
+  image_picker: ^1.0.7
+  url_launcher: ^6.2.4
+
+flutter:
+  uses-material-design: true
