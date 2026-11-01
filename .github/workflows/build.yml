@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -23,11 +24,16 @@ jobs:
         with:
           channel: 'stable'
 
+      # ساخت خودکار پوشه و فایل‌های سیستمی اندروید بدون تغییر کدهای شما
+      - name: Generate Android Platform Files
+        run: |
+          flutter create . --platforms=android --org com.school.manager
+
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build APK
-        run: flutter build apk --split-per-abi=false
+      - name: Build Release APK
+        run: flutter build apk --release --no-tree-shake-icons
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
